@@ -35,5 +35,5 @@ class ThrottlingMiddleware(BaseMiddleware):
             raise CancelHandler()
 
     async def message_throttled(self, message: types.Message, throttled: Throttled):
-        if throttled.exceeded_count <= 2:
+        if throttled.exceeded_count <= 1:
             await message.reply("Слишком много запросов!")
